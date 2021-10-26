@@ -58,15 +58,21 @@ time platanus assemble -o Poil -f trimmed/pe_R1.fastq.trimmed trimmed/pe_R2.fast
 time platanus scaffold -o Poil -c Poil_contig.fa -IP1 trimmed/pe_R1.fastq.trimmed  trimmed/pe_R2.fastq.trimmed -OP2 trimmed/mp_R1.fastq.int_trimmed trimmed/mp_R2.fastq.int_trimmed 2> scaffold.log
 ```
 12. Анализ полученных скаффолдов и количество гепов для самого длинного в том же ноутбуке
-13. С помощью программы “platanus gap_close” уменьшаем кол-во гепов
+13. Собираем файл с самым длинным скаффолдом
+```bash
+echo scaffold1_len3834022_cov231 > scaff.txt
+seqtk subseq Poil_scaffold.fa scaff.txt > Scaff.fna
+rm scaff.txt
+```
+14. С помощью программы “platanus gap_close” уменьшаем кол-во гепов
 ```bash
 time platanus gap_close -o Poil -c Poil_scaffold.fa -IP1 trimmed/pe_R1.fastq.trimmed  trimmed/pe_R2.fastq.trimmed -OP2 trimmed/mp_R1.fastq.int_trimmed trimmed/mp_R2.fastq.int_trimmed 2> gapclose.log
 ```
-14. Собираем файл с самым длинным скаффолдом и считаем количество гепов все в том же ноутбуке
+15. Собираем файл с самым длинным скаффолдом и считаем количество гепов все в том же ноутбуке
 ```bash
 echo scaffold1_cov231 > scaff.txt
-seqtk subseq Poil_gapClosed.fa name_scaff.txt > longest_scaff.fna
-rm -r scaff.txt
+seqtk subseq Poil_gapClosed.fa scaff.txt > longest_scaff.fna
+rm scaff.txt
 ```
 
 
