@@ -27,7 +27,10 @@ ls *.fastq | xargs -P 4 -tI{} fastqc -o fastqc {}
 mkdir multiqc
 multiqc -o multiqc fastqc
 ```
-5. Исходные картинки: TODO
+5. Исходные картинки:
+![alt text](https://github.com/messlav/hse21_hw1/blob/main/images/Снимок%20экрана%202021-10-26%20в%2021.35.44.png)
+![alt text](https://github.com/messlav/hse21_hw1/blob/main/images/Снимок%20экрана%202021-10-26%20в%2021.36.18.png)
+![alt text](https://github.com/messlav/hse21_hw1/blob/main/images/Снимок%20экрана%202021-10-26%20в%2021.36.43.png)
 6. С помощью программ platanus_trim и platanus_internal_trim подрезаем чтения по качеству и удаляем праймеры
 ```bash
 platanus_trim pe_R1.fastq pe_R2.fastq 
@@ -41,7 +44,10 @@ ls trimmed/* | xargs -P 4 -tI{} fastqc -o trimmed_fastqc {}
 mkdir trimmed_multiqc
 multiqc -o trimmed_multiqc trimmed_fastqc 
 ```
-8. Новые картинки: TODO
+8. Новые картинки:
+![alt text](https://github.com/messlav/hse21_hw1/blob/main/images/Снимок%20экрана%202021-10-26%20в%2021.45.32.png)
+![alt text](https://github.com/messlav/hse21_hw1/blob/main/images/Снимок%20экрана%202021-10-26%20в%2021.45.45.png)
+![alt text](https://github.com/messlav/hse21_hw1/blob/main/images/Снимок%20экрана%202021-10-26%20в%2021.46.05.png)
 9. С помощью программы “platanus assemble” собираем контиги из подрезанных чтений
 ```bash
 time platanus assemble -o Poil -f trimmed/pe_R1.fastq.trimmed trimmed/pe_R2.fastq.trimmed 2> assemble.log
