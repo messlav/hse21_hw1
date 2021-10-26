@@ -43,7 +43,9 @@ multiqc -o trimmed_multiqc trimmed_fastqc
 ```
 8. Новые картинки: TODO
 9. С помощью программы “platanus assemble” собираем контиги из подрезанных чтений
+```bash
 time platanus assemble -o Poil -f trimmed/pe_R1.fastq.trimmed trimmed/pe_R2.fastq.trimmed 2> assemble.log
+```
 10. config_analyze in notebook
 11. С помощью программы “ platanus scaffold” собираем скаффолды
 ```bash
