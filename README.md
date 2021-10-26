@@ -56,5 +56,11 @@ time platanus scaffold -o Poil -c Poil_contig.fa -IP1 trimmed/pe_R1.fastq.trimme
 ```bash
 time platanus gap_close -o Poil -c Poil_scaffold.fa -IP1 trimmed/pe_R1.fastq.trimmed  trimmed/pe_R2.fastq.trimmed -OP2 trimmed/mp_R1.fastq.int_trimmed trimmed/mp_R2.fastq.int_trimmed 2> gapclose.log
 ```
+14. Собираем файл с самым длинным скаффолдом
+```bash
+echo scaffold1_cov231 > scaff.txt
+seqtk subseq Poil_gapClosed.fa name_scaff.txt > longest_scaff.fna
+rm -r scaff.txt
+```
 
 
