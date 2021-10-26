@@ -46,12 +46,12 @@ multiqc -o trimmed_multiqc trimmed_fastqc
 ```bash
 time platanus assemble -o Poil -f trimmed/pe_R1.fastq.trimmed trimmed/pe_R2.fastq.trimmed 2> assemble.log
 ```
-10. config_analyze in notebook
+10. config_analyze in https://colab.research.google.com/drive/1dg0a5mR34TB2kq8cYlTqZYrQVBaOqTA3?usp=sharing
 11. С помощью программы “ platanus scaffold” собираем скаффолды
 ```bash
 time platanus scaffold -o Poil -c Poil_contig.fa -IP1 trimmed/pe_R1.fastq.trimmed  trimmed/pe_R2.fastq.trimmed -OP2 trimmed/mp_R1.fastq.int_trimmed trimmed/mp_R2.fastq.int_trimmed 2> scaffold.log
 ```
-12. Анализ полученных скаффолдов и количество гепов для самого длинного в ноутбуке
+12. Анализ полученных скаффолдов и количество гепов для самого длинного туть https://colab.research.google.com/drive/1dg0a5mR34TB2kq8cYlTqZYrQVBaOqTA3?usp=sharing
 13. С помощью программы “platanus gap_close” уменьшаем кол-во гепов
 ```bash
 time platanus gap_close -o Poil -c Poil_scaffold.fa -IP1 trimmed/pe_R1.fastq.trimmed  trimmed/pe_R2.fastq.trimmed -OP2 trimmed/mp_R1.fastq.int_trimmed trimmed/mp_R2.fastq.int_trimmed 2> gapclose.log
